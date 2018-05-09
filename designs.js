@@ -1,15 +1,16 @@
+let canvasPixel = $('#pixelCanvas');
 //Making the grid
 function makeGrid() {
   // Selecting size input
   const inputHeight = $('#inputHeight').val();
   const inputWeight = $('#inputWeight').val();
   //Making existing grid empty
-  $('#pixelCanvas').empty();
+  canvasPixel.empty();
 
   //creating new grid
   //creating rows
   for(let i=0;i<inputHeight;i++){
-    $('#pixelCanvas').append('<tr></tr>');
+    canvasPixel.append('<tr></tr>');
   }
   let newRows=$('tr');
   //creating columns
@@ -24,10 +25,10 @@ $('#sizePicker').submit(function(event) {
 });
 //Grid created
 //Changing the background color which peforms event listening
-$('#pixelCanvas').on( "click", "td", function( event ) {
+canvasPixel.on( "click", "td", function( event ) {
     $(this).css("background-color", $("#colorPicker").val());
 });
 //to remove the colors from grid on double-click
-$('#pixelCanvas').on('dblclick','td',function(){
+canvasPixel.on('dblclick','td',function(){
   $(this).css("background-color","");
 });
